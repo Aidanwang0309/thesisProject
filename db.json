@@ -1,38 +1,37 @@
 {
-    "users":[
-        {   "id": "1", 
-            "userEmail":"test@test.com",
-            "firstName":"Aill", 
-            "lastName":"Boo",
-            "age": "21",
-            "addressLine1":"300 doo",
-            "city":"Brooklyn",
-            "state":"NY",
-            "zip":"11217",
-            "country":"US",
-            "phoneNumber":"1112223456",
-            "height":"178",
-            "weight":"65",
-            "BMI":"19"
-        },
-        {   "id": "2", 
-            "userEmail":"test@test2.com",
-            "firstName":"Aill2", 
-            "lastName":"Boo2",
-            "age": "22",
-            "addressLine1":"200 doo",
-            "city":"Brooklyn",
-            "state":"NY",
-            "zip":"11217",
-            "country":"US",
-            "phoneNumber":"1112223456",
-            "height":"178",
-            "weight":"65",
-            "BMI":"19"
-        }
-    ],
-    "inventory":[
-        
-    ]
-
+	"users": [
+		{
+			"id": "1",
+			"userEmail": "test@test.com",
+			"firstName": "Aill",
+			"lastName": "Boo",
+			"age": "21",
+			"addressLine1": "300 doo",
+			"city": "Brooklyn",
+			"state": "NY",
+			"zip": "11217",
+			"country": "US",
+			"phoneNumber": "1112223456",
+			"height": "178",
+			"weight": "65",
+			"BMI": "19"
+		},
+		{
+			"id": "2",
+			"userEmail": "test@test2.com",
+			"firstName": "Aill2",
+			"lastName": "Boo2",
+			"age": "22",
+			"addressLine1": "200 doo",
+			"city": "Brooklyn",
+			"state": "NY",
+			"zip": "11217",
+			"country": "US",
+			"phoneNumber": "1112223456",
+			"height": "178",
+			"weight": "65",
+			"BMI": "19"
+		}
+	],
+	"inventory": []
 }
