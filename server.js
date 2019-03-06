@@ -1,21 +1,39 @@
 const express = require("express");
 const cookieSession = require("cookie-session");
-const passport = require("passport");
-const keys = require("./config/keys");
-const mongoose = require("mongoose");
-// const expressGraphQL = require("express-graphql");
-const { ApolloServer } = require("apollo-server-express");
 
-// const schema = require("./schema/schema");
+const { ApolloServer } = require("apollo-server-express");
+const mongoose = require("mongoose");
+require("dotenv").config();
+
 const typeDefs = require("./data/schema");
 const resolvers = require("./data/resolvers");
-const authRoutes = require("./routes/authRoutes");
 require("./models/User");
-require("./services/passport");
+const { findOrCreateUser } = require("./controllers/userController");
 
-mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
+// const passport = require("passport");
+// const authRoutes = require("./routes/authRoutes");
+// require("./services/passport");
 
-const server = new ApolloServer({ typeDefs, resolvers });
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
+
+const server = new ApolloServer({
+	typeDefs,
+	resolvers,
+	context: async ({ req }) => {
+		let authToken = null;
+		let currentUser = null;
+		try {
+			authToken = req.headers.authorization;
+			if (authToken) {
+				//find or create the user
+				currentUser = await findOrCreateUser(authToken);
+			}
+		} catch (err) {
+			console.log("Unable to authenticate user");
+		}
+		return { currentUser };
+	}
+});
 const app = express();
 server.applyMiddleware({ app });
 
@@ -23,14 +41,14 @@ server.applyMiddleware({ app });
 app.use(
 	cookieSession({
 		maxAge: 30 * 24 * 60 * 60 * 1000,
-		keys: [keys.cookieKey]
+		keys: [process.env.COOKIE_KEY]
 	})
 );
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // setup routes of authentication
-authRoutes(app);
+// authRoutes(app);
 
 // app.use(
 // 	"/graphql",
