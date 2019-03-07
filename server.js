@@ -27,6 +27,7 @@ const server = new ApolloServer({
 			if (authToken) {
 				//find or create the user
 				currentUser = await findOrCreateUser(authToken);
+				// console.log(currentUser);
 			}
 		} catch (err) {
 			console.log("Unable to authenticate user");
