@@ -1,0 +1,36 @@
+/* .fiber-detail-container {
+  height: 100%;
+} */
+// @import "~include-media/dist/_include-media.scss";
+// @import "~bulma/sass/utilities/_all.sass";
+// @import "~bulma/sass/base/_all.sass";
+// @import "~bulma/sass/elements/button.sass";
+// @import "~bulma/sass/layout/section.sass";
+
+.fiber-detail-container {
+	background-image: url("../../assets/polyester.jpg");
+	background-repeat: no-repeat, no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 40%;
+}
+
+.fiber-detail {
+	position: relative;
+	top: 100px;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.fiber-detail h1 {
+	color: white;
+	font-size: 3rem;
+	margin: 0;
+}
+
+.fiber-detail-intro,
+.fiber-detail-Landry,
+.fiber-detail-howto {
+	height: 400px;
+	background: white;
+	margin-top: 20px;
+}

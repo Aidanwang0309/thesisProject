@@ -8,6 +8,7 @@ require("dotenv").config();
 const typeDefs = require("./data/schema");
 const resolvers = require("./data/resolvers");
 require("./models/User");
+require("./models/FashionBatch");
 const { findOrCreateUser } = require("./controllers/userController");
 
 // const passport = require("passport");
